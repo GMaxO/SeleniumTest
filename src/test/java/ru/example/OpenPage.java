@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OpenPage extends SetupChromeDriver {
+public class OpenPage extends BaseTest {
 
     public OpenPage() {
     }
@@ -28,17 +28,22 @@ public class OpenPage extends SetupChromeDriver {
     private WebElement eurSale;
 
     public boolean checkUSD() {
-        float x = Float.parseFloat(usdSale.getText());
-        float v = Float.parseFloat(usdBuy.getText());
+        float x = Float.parseFloat(usdSale.getText().replace(',', '.'));
+        float v = Float.parseFloat(usdBuy.getText().replace(',', '.'));
         if (x > v) {
             return true;
         } else {
             return false;
         }
     }
-//   public boolean checkEUR() {
-//        boolean x = float.parseInt(eurSale.getText()) > float.parseInt(eurBuy.getText());
-//        return true;
-//    }
 
+    public boolean checkEUR() {
+        float x = Float.parseFloat(eurSale.getText().replace(',', '.'));
+        float v = Float.parseFloat(eurBuy.getText().replace(',', '.'));
+        if (x > v) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

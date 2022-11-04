@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MainPage extends SetupChromeDriver {
+public class GooglePage extends BaseTest {
 
-    public MainPage(WebDriver driver) {
+    public GooglePage(WebDriver driver) {
         driver.get("https:///www.google.com/");
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -27,7 +27,7 @@ public class MainPage extends SetupChromeDriver {
         String text = link.getAttribute("href");
         return text;
     }
-    public MainPage searchField(String search){
+    public GooglePage searchField(String search){
         fieldSearch.sendKeys(search);
         fieldSearch.sendKeys(Keys.ENTER);
         return this;
